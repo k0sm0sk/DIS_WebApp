@@ -4,36 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Test Page</title>
+    <link href="https://fonts.cdnfonts.com/css/big-john" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <title>Test Page</title>
     <script>
-
-        // Example: fire confetti when the page loads
-        window.onload = function() {
-            for (let i = 0; i < 20; i++) {
-            confetti({
-                particleCount: 100,
-                startVelocity: 30,
-                spread: 360,
-                origin: {
-                    x: Math.random(),
-                    // since they fall down, start a bit higher than random
-                    y: Math.random() - 0.2
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.hol-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    for (let i = 0; i < 20; i++) {
+                        confetti({
+                            particleCount: 100,
+                            startVelocity: 30,
+                            spread: 360,
+                            origin: {
+                                x: Math.random(),
+                                y: Math.random() - 0.2
+                            }
+                        });
+                    }
+                });
             });
-        }
-        };
+        });
     </script>
 
 </head>
 <body>
-    <h1>Test Page</h1>
-    <p>This is a test page to verify the CSS styling.</p>
-    <p>Check the styles applied to this page.</p>
-    <div class="test">
-        <h2><a class="button" href="../"> Go Back</a></h2>
-        <p>This is a test section to demonstrate the use of CSS in Flask.</p>
-        </div>
+    <h1 class=title> Higher / Lower </h1>
+    <div class=btn-container>
+        <h1 class="hol-btn h1"><b> Lower &#128071; </b></h1>
+        <h1 class="hol-btn h1"><b> Higher &#128070; </b></h1>
     </div>
 </body>
 </html>
