@@ -1,0 +1,96 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #212529;
+}
+
+h1 {
+    color: #5d89da;
+    text-align: center;
+    padding: 20px;
+    background-color: #ededed;
+    font-size: medium;
+    /* border-bottom: 2px solid #b300a7; */
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #FFFECB;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #5448C8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+a {
+    color: #FEA82F;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.test {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #5448C8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.test:has(h2:hover) {
+    background-color: #b300a7;
+}
+
+.test h2 {
+    color: #5d89da;
+    text-align: center;
+    padding: 20px;
+    background-color: #ededed;
+    transition: color 0.5s ease-in-out, font-size 0.5s ease-in-out;
+}
+
+.test h2:hover {
+    text-decoration: underline;
+    font-size: xx-large;
+    color: #FEA82F;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* optional, for vertical centering */
+    width: 100%;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5d89da;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+    /* left: 40%; */
+}
+
+.test.no-hover-effect h2:hover {
+    font-size: revert;
+    /* or a fixed size */
+    text-decoration: none;
+}
