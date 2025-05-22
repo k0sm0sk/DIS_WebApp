@@ -1,96 +1,55 @@
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Big John', sans-serif;
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     color: #212529;
+    background-color: #212529;
 }
 
-h1 {
-    color: #5d89da;
-    text-align: center;
-    padding: 20px;
-    background-color: #ededed;
-    font-size: medium;
-    /* border-bottom: 2px solid #b300a7; */
+.title {
+    font-size: 40pt;
+    color: #F5FDC6;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+    text-decoration: underline dashed;
 }
 
-p {
-    text-align: center;
-    font-size: 1.2em;
-    color: #FFFECB;
+.btn-container {
+    display: grid;
+    margin-top: 10%;
+    grid-template-columns: auto auto;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #5448C8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 50px;
-}
-
-a {
-    color: #FEA82F;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.test {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #5448C8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 50px;
-    transition: background-color 0.5s ease-in-out;
-}
-
-.test:has(h2:hover) {
-    background-color: #b300a7;
-}
-
-.test h2 {
-    color: #5d89da;
-    text-align: center;
-    padding: 20px;
-    background-color: #ededed;
-    transition: color 0.5s ease-in-out, font-size 0.5s ease-in-out;
-}
-
-.test h2:hover {
-    text-decoration: underline;
-    font-size: xx-large;
-    color: #FEA82F;
-}
-
-.button-container {
+.hol-btn {
+    padding: 200px 100px;
+    background-color: #F5FDC6;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* optional, for vertical centering */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
     width: 100%;
+    max-width: 50%;
+    max-height: 50%;
+    margin: auto;
+    margin-top: 20%;
+    transition: font-size ease-in-out 0.35s, ease-in-out 0.35s, background-color ease-in-out 0.4s, box-shadow 1s, text-shadow ease-in-out 0.5s;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #5d89da;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    position: relative;
-    /* left: 40%; */
-}
-
-.test.no-hover-effect h2:hover {
-    font-size: revert;
-    /* or a fixed size */
-    text-decoration: none;
+.hol-btn.h1:hover {
+    font-size: 50pt;
+    background-color: #4361EE;
+    color: #F5FDC6;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 3px 3px 4px #212529;
 }
