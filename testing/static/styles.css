@@ -31,11 +31,12 @@ body {
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    width: 100%;
+    width: 50%;
+    height: 1%;
     max-width: 50%;
     max-height: 50%;
     margin: auto;
-    margin-top: 20%;
+    margin-top: 5%;
     transition: font-size ease-in-out 0.35s, ease-in-out 0.35s, background-color ease-in-out 0.4s, box-shadow 1s, text-shadow ease-in-out 0.5s;
     cursor: pointer;
     -webkit-user-select: none;
@@ -47,7 +48,7 @@ body {
 }
 
 .hol-btn.h1:hover {
-    font-size: 50pt;
+    font-size: 40pt;
     background-color: #4361EE;
     color: #F5FDC6;
     box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.3);

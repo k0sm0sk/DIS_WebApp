@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://fonts.cdnfonts.com/css/big-john" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
-    <title>Test Page</title>
+    <title>Higher / Lower</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.hol-btn').forEach(function(btn) {
@@ -29,7 +29,13 @@
 
 </head>
 <body>
-    <h1 class=title> Higher / Lower </h1>
+    <h1 class=title>Higher / Lower</h1>
+        <form method="post">
+        <h1 class=title><button type="submit">Run Python Function</button></h1>
+    </form>
+    {% if result %}
+        <h1 class=title>{{ result }}</h1>
+    {% endif %}
     <div class=btn-container>
         <h1 class="hol-btn h1"><b> Lower &#128071; </b></h1>
         <h1 class="hol-btn h1"><b> Higher &#128070; </b></h1>
