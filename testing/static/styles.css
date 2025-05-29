@@ -1,25 +1,77 @@
 body {
     font-family: 'Big John', sans-serif;
-    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     color: #212529;
     background-color: #212529;
 }
 
+.title-button {
+    background-color: #F5FDC6;
+    /* Green */
+    border: none;
+    color: #212529;
+    border-radius: 8px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    user-select: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+}
+
 .title {
-    font-size: 40pt;
+    font-size: 25pt;
     color: #F5FDC6;
     margin: auto;
     display: flex;
     justify-content: center;
+    /* margin-top: 1%; */
+    /* text-decoration: underline dashed; */
+    user-select: none;
+}
+
+.title.center {
+    font-size: 40pt;
+}
+
+.headers-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
     margin-top: 1%;
-    text-decoration: underline dashed;
 }
 
 .btn-container {
     display: grid;
-    margin-top: 10%;
+    margin-top: 5%;
     grid-template-columns: auto auto;
 }
 
@@ -31,12 +83,13 @@ body {
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    width: 50%;
+    width: 100%;
     height: 1%;
-    max-width: 50%;
+    max-width: 75%;
     max-height: 50%;
     margin: auto;
     margin-top: 5%;
+    font-size: 30pt;
     transition: font-size ease-in-out 0.35s, ease-in-out 0.35s, background-color ease-in-out 0.4s, box-shadow 1s, text-shadow ease-in-out 0.5s;
     cursor: pointer;
     -webkit-user-select: none;
@@ -47,10 +100,147 @@ body {
     /* Standard syntax */
 }
 
-.hol-btn.h1:hover {
+.hol-btn.h1:hover { /* Resize on hover styling for entire box and text in it */
+    font-size: 40pt;
+    background-color: #4361EE;
+    color: #212529;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 3px 3px 4px #212529;
+}
+
+
+.pictures-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pictures-text {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.pictures-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.picture-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.picture-item img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.picture-item img:hover {
+    transform: scale(1.05);
+}
+
+.picture-label {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #555;
+}
+
+.hol-btn1 {
+    padding: 200px 100px;
+    background-image: var(--button1-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5FDC6; /* Fallback color if image doesn't load */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 100%;
+    height: 1%;
+    max-width: 75%;
+    max-height: 50%;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 30pt;
+    transition: font-size ease-in-out 0.35s, ease-in-out 0.35s, background-color ease-in-out 0.4s, box-shadow 1s, text-shadow ease-in-out 0.5s;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+    color: #F5FDC6;
+    text-shadow: 1px 1px 2px rgba(34, 32, 32, 0.8);
+}
+
+.hol-btn1.h1:hover {
     font-size: 40pt;
     background-color: #4361EE;
     color: #F5FDC6;
     box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.3);
-    text-shadow: 3px 3px 4px #212529;
+    text-shadow: 4px 4px 30px #000000;
+}
+
+
+.hol-btn2 {
+    padding: 200px 100px;
+    background-image: var(--button2-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #F5FDC6; /* Fallback color if image doesn't load */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    width: 100%;
+    height: 1%;
+    max-width: 75%;
+    max-height: 50%;
+    margin: auto;
+    margin-top: 5%;
+    font-size: 30pt;
+    transition: font-size ease-in-out 0.35s, ease-in-out 0.35s, background-color ease-in-out 0.4s, box-shadow 1s, text-shadow ease-in-out 0.5s;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: none;
+    color: #F5FDC6;
+        text-shadow: 1px 1px 2px rgba(34, 32, 32, 0.8);
+}
+
+.hol-btn2.h1:hover {
+    font-size: 40pt;
+    background-color: #4361EE;
+    color: #F5FDC6;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 4px 4px 30px #000000;
+}
+
+@media (max-width: 768px) {
+    .pictures-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .picture-item img {
+        max-width: 250px;
+        max-height: 250px;
+    }
 }

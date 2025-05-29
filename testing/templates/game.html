@@ -9,7 +9,7 @@
     <title>Higher / Lower</title>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.hol-btn').forEach(function(btn) {
+            document.querySelectorAll('.confetti').forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     for (let i = 0; i < 20; i++) {
                         confetti({
@@ -26,20 +26,37 @@
             });
         });
     </script>
-
 </head>
 <body>
-    <h1 class=title>Higher / Lower</h1>
-        <form method="post">
-        <h1 class=title><button type="submit">Run Python Function</button></h1>
-    </form>
-    {% if result %}
-        <h1 class=title>{{ result }}</h1>
-    {% endif %}
-    <div class=btn-container>
-        <h1 class="hol-btn h1"><b> Lower &#128071; </b></h1>
-        <h1 class="hol-btn h1"><b> Higher &#128070; </b></h1>
+    <div class="headers-container">
+        <form method="post" action="{{ url_for('new_game') }}">
+            <h1 class="title" style="cursor: pointer;"><div class="title-button"><button type="submit">New Game</button></div></h1>
+        </form>
+        <h1 class="title center">Higher <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">&nbsp;/&nbsp;</a> Lower</h1>
+        <h1 class="title" style="cursor: pointer;"><div class="confetti title-button">Confetti!</div></h1>
     </div>
+    
+    {% if result %}
+        <h1 class="title">{{ result }}</h1>
+    {% endif %}
+
+
+<div class="btn-container">
+    <form method="post" action="{{ url_for('increment') }}">
+        <input type="hidden" name="button" value="left">
+        <button style="--button1-bg: url('{{ button1_background }}');" class="hol-btn1 h1">
+            <b> {{ button1_text }} &#128071; </b>
+        </button>
+    </form>
+    
+    <form method="post" action="{{ url_for('increment') }}">
+        <input type="hidden" name="button" value="right">
+        <button style="--button2-bg: url('{{ button2_background }}');" class="hol-btn2 h1">
+            <b> {{ button2_text }} &#128070; </b>
+        </button>
+    </form>
+</div>
+
     <!-- P A K L A T -->
 </body>
 </html>
