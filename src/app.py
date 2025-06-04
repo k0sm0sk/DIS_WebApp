@@ -36,7 +36,7 @@ def increment():
 
     if float(session['left_sales']) >= float(session['right_sales']) and button=='left':
         session['count'] += 1
-        session['right_img'], session['right_name'], session['right_sales'] = random_game(session['left_sales'])
+        session['right_img'], session['right_name'], session['right_sales'] = random_game()
         
         
     if float(session['left_sales']) > float(session['right_sales']) and button=='right':
@@ -44,7 +44,7 @@ def increment():
         
     if float(session['left_sales']) <= float(session['right_sales']) and button=='right':
         session['count'] += 1
-        session['left_img'], session['left_name'],session['left_sales'] = random_game(session['right_sales'])
+        session['left_img'], session['left_name'],session['left_sales'] = random_game()
     
     if float(session['left_sales']) < float(session['right_sales']) and button=='left':
         return new_game()
@@ -53,6 +53,7 @@ def increment():
 
 @app.route('/random_game')
 def random_game(cur_sales = 0.5):
+    app.logger.info(f"cur_sales = {cur_sales}, type = {type(cur_sales)}")
     conn = psycopg2.connect(
         dbname="dis_projekt",
         user="postgres",
@@ -61,8 +62,7 @@ def random_game(cur_sales = 0.5):
         port="5432"
     )
     cur = conn.cursor()
-
-
+    
     cur.execute(f"""
                 SELECT img,title,total_sales FROM game_data 
                 WHERE total_sales::FLOAT > {cur_sales} 
