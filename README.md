@@ -6,5 +6,5 @@
 * Lars V. Thorup - rlp419
 * Vitus N. Legarth - gfn320
 
-### ER Model
+### ER Model of our DBMS
 ![alt text](ER_Model.png)
