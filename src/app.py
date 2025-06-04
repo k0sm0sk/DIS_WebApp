@@ -12,6 +12,8 @@ app.secret_key = 'paklat'
 
 @app.route('/', methods = ['GET','POST'])
 def game_counter():
+    
+ 
     if 'left_img' not in session:
         session['left_img'], session['left_name'],session['left_sales'] = random_game()
 
@@ -25,6 +27,8 @@ def game_counter():
     return render_template('game.html', result=result,button1_text=session['left_name'],
                            button1_background=session['left_img'],button2_text=session['right_name'],
                            button2_background=session['right_img'])
+                       
+
                          
 
 @app.route('/increment', methods=['POST'])
@@ -36,7 +40,7 @@ def increment():
 
     if float(session['left_sales']) >= float(session['right_sales']) and button=='left':
         session['count'] += 1
-        session['right_img'], session['right_name'], session['right_sales'] = random_game()
+        session['right_img'], session['right_name'], session['right_sales'] = random_game(float(session['right_sales']))
         
         
     if float(session['left_sales']) > float(session['right_sales']) and button=='right':
@@ -44,16 +48,16 @@ def increment():
         
     if float(session['left_sales']) <= float(session['right_sales']) and button=='right':
         session['count'] += 1
-        session['left_img'], session['left_name'],session['left_sales'] = random_game()
+        session['left_img'], session['left_name'],session['left_sales'] = random_game(float(session['right_sales']))
     
     if float(session['left_sales']) < float(session['right_sales']) and button=='left':
         return new_game()
     
     return redirect(url_for('game_counter'))
 
-@app.route('/random_game')
 def random_game(cur_sales = 0.5):
     app.logger.info(f"cur_sales = {cur_sales}, type = {type(cur_sales)}")
+    print(f"cur_sales = {cur_sales}, type = {type(cur_sales)}")
     conn = psycopg2.connect(
         dbname="dis_projekt",
         user="postgres",
@@ -62,7 +66,7 @@ def random_game(cur_sales = 0.5):
         port="5432"
     )
     cur = conn.cursor()
-    
+
     cur.execute(f"""
                 SELECT img,title,total_sales FROM game_data 
                 WHERE total_sales::FLOAT > {cur_sales} 
