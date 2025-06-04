@@ -46,7 +46,7 @@ def enter_name():
             session['user_name'] = name.strip()
             return redirect(url_for('game_counter'))
         else:
-            return render_template('enter_name.html', error="Name must be 3–15 letters with no spaces or special characters.")
+            return render_template('enter_name.html', error="Name must be 3-15 letters with no spaces or special characters.")
     
     return render_template('enter_name.html')
 

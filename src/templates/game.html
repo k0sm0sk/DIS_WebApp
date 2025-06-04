@@ -28,9 +28,9 @@
     </script>
 </head>
 <body>
-<div class="user-info" style="background: green; color: white; padding: 10px; font-size: 20px;">
+<div class="user-info" style="background: #F5FDC6; color: black; padding: 10px; font-size: 20px;">
     Welcome, {{ user_name }}! 
-    <a href="{{ url_for('reset_name') }}">Change Name</a>
+    <a href="{{ url_for('reset_name') }}" style="cursor: pointer;">Change Name</a>
 </div>
     <div class="headers-container">
         <form method="post" action="{{ url_for('new_game') }}">
