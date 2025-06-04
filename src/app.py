@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 # We import render_template so we can render Jinja2 code, and request so we can handle POSTs
 # We import sqlite, likely we don't need to install any new library because this is a default Python library
-import psycopg2
 import sqlite3
 
 # ? "\psql -h localhost -U postgres -d dis_projekt"
