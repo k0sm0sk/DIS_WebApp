@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, session, redirect, url_for
 # We import render_template so we can render Jinja2 code, and request so we can handle POSTs
 # We import sqlite, likely we don't need to install any new library because this is a default Python library
 import sqlite3
-import psycopg2
 import re
 
 # ? "\psql -h localhost -U postgres -d dis_projekt"
@@ -14,7 +13,6 @@ app.secret_key = 'paklat'
 
 @app.route('/', methods = ['GET','POST'])
 def game_counter():
-
 
      # Check if user has entered their name
     if 'user_name' not in session:
@@ -62,7 +60,7 @@ def increment():
 
     if float(session['left_sales']) >= float(session['right_sales']) and button=='left':
         session['count'] += 1
-        session['right_img'], session['right_name'], session['right_sales'] = random_game(float(session['right_sales']))
+        session['right_img'], session['right_name'], session['right_sales'] = random_game()
         
         
     if float(session['left_sales']) > float(session['right_sales']) and button=='right':
@@ -71,7 +69,7 @@ def increment():
         
     if float(session['left_sales']) <= float(session['right_sales']) and button=='right':
         session['count'] += 1
-        session['left_img'], session['left_name'],session['left_sales'] = random_game(float(session['right_sales']))
+        session['left_img'], session['left_name'],session['left_sales'] = random_game()
     
     if float(session['left_sales']) < float(session['right_sales']) and button=='left':
         app.logger.info(f"died")
