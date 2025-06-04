@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 # We import render_template so we can render Jinja2 code, and request so we can handle POSTs
 # We import sqlite, likely we don't need to install any new library because this is a default Python library
 import psycopg2
+import re
 
 # ? "\psql -h localhost -U postgres -d dis_projekt"
 
@@ -12,6 +13,12 @@ app.secret_key = 'paklat'
 
 @app.route('/', methods = ['GET','POST'])
 def game_counter():
+
+
+     # Check if user has entered their name
+    if 'user_name' not in session:
+        return redirect(url_for('enter_name'))
+    
     if 'left_img' not in session:
         session['left_img'], session['left_name'],session['left_sales'] = random_game()
 
@@ -22,10 +29,28 @@ def game_counter():
         session['count'] = 0
     
     result = f"Score = {session['count']}"
-    return render_template('game.html', result=result,button1_text=session['left_name'],
-                           button1_background=session['left_img'],button2_text=session['right_name'],
-                           button2_background=session['right_img'])
-                         
+    return render_template('game.html', 
+                         result=result,
+                         button1_text=session['left_name'],
+                         button1_background=session['left_img'],
+                         button2_text=session['right_name'],
+                         button2_background=session['right_img'],
+                         user_name=session['user_name'])
+
+@app.route('/enter_name', methods=['GET', 'POST'])
+def enter_name():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        pattern = r'^[A-Za-z]{3,15}$'  # Only letters, 3-15 characters long
+
+        if name and re.match(pattern, name.strip()):
+            session['user_name'] = name.strip()
+            return redirect(url_for('game_counter'))
+        else:
+            return render_template('enter_name.html', error="Name must be 3–15 letters with no spaces or special characters.")
+    
+    return render_template('enter_name.html')
+
 
 @app.route('/increment', methods=['POST'])
 def increment():
@@ -55,11 +80,11 @@ def increment():
 def random_game(cur_sales = 0.5):
     app.logger.info(f"cur_sales = {cur_sales}, type = {type(cur_sales)}")
     conn = psycopg2.connect(
-        dbname="dis_projekt",
+        dbname="computershop",
         user="postgres",
         password="",
         host="localhost",
-        port="5432"
+        port="5433"
     )
     cur = conn.cursor()
     
@@ -78,13 +103,15 @@ def random_game(cur_sales = 0.5):
 @app.route('/new_game', methods=['POST'])
 def new_game():
     session['count'] = 0
-    
     session['left_img'], session['left_name'],session['left_sales'] = random_game()
     session['right_img'], session['right_name'], session['right_sales'] = random_game()
 
-    
     return redirect(url_for('game_counter'))
     
+@app.route('/reset_name')
+def reset_name():
+    session.pop('user_name', None)
+    return redirect(url_for('enter_name'))
 
 
 if __name__ == '__main__':

@@ -28,6 +28,10 @@
     </script>
 </head>
 <body>
+<div class="user-info" style="background: green; color: white; padding: 10px; font-size: 20px;">
+    Welcome, {{ user_name }}! 
+    <a href="{{ url_for('reset_name') }}">Change Name</a>
+</div>
     <div class="headers-container">
         <form method="post" action="{{ url_for('new_game') }}">
             <h1 class="title" style="cursor: pointer;"><div class="title-button"><button type="submit">New Game</button></div></h1>
@@ -56,6 +60,7 @@
         </button>
     </form>
 </div>
+
 
     <!-- P A K L A T -->
 </body>
