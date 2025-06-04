@@ -6,6 +6,22 @@
 * Lars V. Thorup - rlp419
 * Vitus N. Legarth - gfn320
 
+
+## About the game
+The game we have made is a Higher or Lower type game, where the player has to choose between two videogames, and guess which one has the highest amount of sold copies.
+All videogames showcased in our game, has at least 500.000 sold copies worldwide.
+
+**Note**: *After exloring the dataset, we have noticed that not all entries have correct data regarding total sales and even sometimes cover image. This is a problem with the dataset from Kaggle, and not the cleaning process. E.g. Minecraft should be number 1, but has about 100 million copies less sold in the dataset, than in "real life".*
+
+## Setup / Dependency installation
+All dependencies will work on `Python version 3.12.7 and above`. We have **not** tested earlier versions.
+
+In you terminal, navigate to the root folder of the `DIS_WebApp` and install dependencies by running:
+```zsh
+pip install -r requirements.txt
+```
+
+
 ## How to run
 Run `app.py` located at `src/app.py` using:
 #### MacOS
